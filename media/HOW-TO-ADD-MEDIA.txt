@@ -1,0 +1,61 @@
+WHAT'S ALREADY HERE, AND WHERE IT CAME FROM
+===========================================
+
+Everything below is cut, cropped and encoded. Originals are untouched in
+_RAW-MEDIA-DROP-HERE. To replace any of these, drop in a new file with the same
+name (any of .mp4 .webm .gif .png .jpg .webp) and the site picks it up.
+
+SLOT                SOURCE              CUT           NOTE
+daisy-3leg          IMG_6488.mov        55.0-66.0s    5:4 crop on the robot
+spot-3leg-sim       lift14_web.mp4      47-61s        denoised, 16:10
+spot-2leg-rl        rl-video-step-0     0.4-17.6s     denoised, 16:10
+cf-throw-hover      IMG_6515.mov        9.2-16.2s     square crop
+cf-pingpong         IMG_6520.mov        14-26s        square crop
+cf-dodge            IMG_6510.mov        19.5-29.5s    square crop
+cf-figure8          IMG_6513.mov        6-18s         square crop
+cf-barrelroll       IMG_6454.mov        10.05-12.85s  square, tight on the roll
+frostbyte           Frostbyte.jpg       -             cropped to a wide banner
+poster              Final_Spot_Poster   -             6240x4680, click to zoom
+
+The two Isaac Sim renders were 80 MB before denoising and are 0.9 and 2.7 MB
+after. That was path-tracer noise, not detail - nothing was lost.
+
+STILL EMPTY
+-----------
+cf-printed-parts      Photo of the 3D printed replacement parts
+resume.pdf            Your resume. BOTH RESUME BUTTONS ARE DEAD WITHOUT THIS.
+
+UNUSED BUT KEPT
+---------------
+daisy-cutout.png      The transparent cutout of Daisy from realspot.png.
+                      Say the word and I'll work it into the hero or a section.
+
+
+DOCUMENTS
+---------
+poster.png            Your research poster, as an image (or .jpg)
+poster.pdf            Your research poster, as a PDF (the "Open poster PDF" button)
+resume.pdf            Your resume (the "Resume" buttons in the header and footer)
+
+The poster is click-to-enlarge with zoom and pan, so use the HIGHEST resolution
+export you have. A 4000px-wide PNG is not too big here — that is the whole point
+of the lightbox. If all you have is the print PDF, export a large PNG from it.
+
+
+ALREADY IN PLACE (Crimson Hosting)
+----------------------------------
+ch-creama-before / -after        \
+ch-chilangos-before / -after      >  copied from your Crimson-Hosting repo,
+ch-joy-before / -after           /   already wired to the drag-to-compare sliders
+ch-logo.webp                     (not currently used, kept in case you want it)
+
+
+NOTES
+-----
+- MP4 is much smaller than GIF and loops just as well. If a GIF is over ~10 MB,
+  convert it: it will load faster and look sharper.
+- Videos autoplay muted and loop, exactly like a GIF would.
+- Any slot with no file shows a labelled "awaiting media" placeholder instead of
+  breaking, so you can add files one at a time.
+- Landscape 16:10 looks best in the large frames. The six small behaviour cards
+  crop to 2:1, so keep the drone roughly centred in those clips.
