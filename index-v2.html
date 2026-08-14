@@ -1,0 +1,1092 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Mohammed Suleiman</title>
+<meta name="description" content="Computer science and mathematics at Amherst College. Web studio co-founder, quadruped control and autonomous flight research. Looking for a software or machine learning internship for summer 2027.">
+<meta property="og:title" content="Mohammed Suleiman">
+<meta property="og:description" content="CS and mathematics at Amherst College. Web studio co-founder; quadruped control and autonomous flight research.">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400..800&family=Newsreader:opsz,wght@6..72,300..600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{margin:0}
+
+:root{
+  --paper:#FBF8F3; --paper2:#F4EFE6; --card:#FFFDFA;
+  --ink:#17150F; --ink2:#575048; --ink3:#8C837A; --ink4:#B4AA9D;
+  --rule:#E2DACC; --rule2:#CFC5B4;
+  --acc:#7A2233; --acc-bg:#F6EAE9;
+  --plum:#3F2A56;
+  --fd:'Fraunces',Georgia,serif;
+  --fb:'Newsreader',Georgia,serif;
+  --fm:'IBM Plex Mono',ui-monospace,Menlo,monospace;
+  --pad:clamp(22px,5vw,64px);
+  --maxw:1080px;
+}
+body{
+  background:var(--paper); color:var(--ink);
+  font-family:var(--fb); font-size:18px; line-height:1.62;
+  -webkit-font-smoothing:antialiased;
+}
+body.locked{overflow:hidden}
+::selection{background:var(--acc-bg); color:var(--acc)}
+
+.wrap{max-width:var(--maxw); margin:0 auto; padding:0 var(--pad)}
+a{color:inherit}
+
+/* ---------- header ---------- */
+header{position:sticky; top:0; z-index:50; background:rgba(251,248,243,.88); backdrop-filter:blur(10px); border-bottom:1px solid var(--rule)}
+.hin{display:flex; align-items:baseline; justify-content:space-between; gap:24px; padding:14px 0}
+.hname{font-family:var(--fd); font-size:19px; font-weight:600; letter-spacing:-.015em; text-decoration:none; white-space:nowrap}
+.hnav{display:flex; gap:26px; font-family:var(--fm); font-size:12.5px; letter-spacing:.02em}
+.hnav a{color:var(--ink2); text-decoration:none; padding-bottom:2px; border-bottom:1px solid transparent; transition:color .2s,border-color .2s}
+.hnav a:hover{color:var(--acc); border-color:var(--acc)}
+@media(max-width:720px){.hnav{display:none}}
+
+/* ---------- type ---------- */
+h1,h2,h3,h4{font-family:var(--fd); font-weight:600; letter-spacing:-.02em; line-height:1.1; margin:0}
+h1{font-size:clamp(40px,6.6vw,74px); font-weight:500; letter-spacing:-.035em; line-height:1.02}
+h2{font-size:clamp(27px,3.4vw,38px)}
+h3{font-size:clamp(20px,2.2vw,25px)}
+h4{font-size:18.5px; font-weight:600}
+p{margin:0 0 1.05em}
+.lede{font-size:clamp(19px,2vw,22px); line-height:1.58; color:var(--ink2); max-width:60ch}
+.lede strong,.body strong{color:var(--ink); font-weight:600}
+.body{max-width:66ch; color:var(--ink2)}
+.body a,.lede a{color:var(--acc); text-decoration:underline; text-underline-offset:3px; text-decoration-thickness:1px; text-decoration-color:var(--rule2)}
+.body a:hover,.lede a:hover{text-decoration-color:var(--acc)}
+.small{font-size:16px}
+
+section{padding:clamp(52px,7vw,92px) 0; border-top:1px solid var(--rule)}
+section:first-of-type{border-top:0}
+.eyebrow{font-family:var(--fm); font-size:11.5px; letter-spacing:.16em; text-transform:uppercase; color:var(--ink3); margin:0 0 18px}
+.shead{display:grid; grid-template-columns:minmax(0,1fr); gap:10px; margin-bottom:clamp(26px,3.4vw,44px)}
+.shead p{margin:0}
+
+/* ---------- hero ---------- */
+#top{padding-top:clamp(48px,7vw,86px); padding-bottom:clamp(34px,4.5vw,56px)}
+#top h1{margin-bottom:22px}
+.tagline{font-family:var(--fm); font-size:13px; letter-spacing:.06em; color:var(--ink3); margin:0 0 26px}
+.avail{display:flex; flex-wrap:wrap; gap:10px 12px; margin-top:30px}
+.pill{font-family:var(--fm); font-size:12px; letter-spacing:.04em; border:1px solid var(--rule2); border-radius:999px; padding:7px 14px; color:var(--ink2); background:var(--card)}
+.pill.on{border-color:var(--acc); color:var(--acc); background:var(--acc-bg)}
+.pill a{text-decoration:none}
+
+/* ---------- facts strip ---------- */
+.facts{display:grid; grid-template-columns:repeat(auto-fit,minmax(180px,1fr)); gap:1px; background:var(--rule); border:1px solid var(--rule); border-radius:3px; overflow:hidden; margin-top:clamp(30px,4vw,44px)}
+.fact{background:var(--card); padding:16px 18px}
+.fact dt{font-family:var(--fm); font-size:10.5px; letter-spacing:.14em; text-transform:uppercase; color:var(--ink3); margin-bottom:6px}
+.fact dd{margin:0; font-size:16.5px; line-height:1.4}
+.fact dd a{color:var(--acc); text-decoration:none; border-bottom:1px solid var(--rule2)}
+.fact dd a:hover{border-color:var(--acc)}
+
+/* ---------- work entries ---------- */
+.entry{display:grid; grid-template-columns:minmax(0,1.05fr) minmax(0,1fr); gap:clamp(24px,3.6vw,52px); align-items:start; padding:clamp(30px,4vw,46px) 0; border-top:1px solid var(--rule)}
+.entry:first-of-type{border-top:0; padding-top:0}
+@media(max-width:820px){.entry{grid-template-columns:minmax(0,1fr); gap:22px}}
+.entry .meta{font-family:var(--fm); font-size:11.5px; letter-spacing:.1em; text-transform:uppercase; color:var(--ink3); margin:0 0 10px}
+.entry h3{margin-bottom:12px}
+.entry .body{max-width:56ch}
+.deets{margin:18px 0 0; padding:0; list-style:none; border-top:1px solid var(--rule)}
+.deets li{display:grid; grid-template-columns:88px minmax(0,1fr); gap:14px; padding:9px 0; border-bottom:1px solid var(--rule); font-size:15.5px; color:var(--ink2)}
+.deets b{font-family:var(--fm); font-size:10.5px; letter-spacing:.1em; text-transform:uppercase; color:var(--ink3); font-weight:400; padding-top:4px}
+.deets em{font-style:normal; color:var(--ink); font-weight:600}
+
+/* ---------- figures ---------- */
+figure{margin:0}
+.fig{border:1px solid var(--rule); border-radius:3px; overflow:hidden; background:var(--paper2)}
+.fig .box{position:relative; aspect-ratio:16/10; display:flex; align-items:center; justify-content:center; background:var(--paper2)}
+.fig .box.sq{aspect-ratio:1/1}
+.fig .box.wide{aspect-ratio:2/1}
+.fig img,.fig video{width:100%; height:100%; object-fit:cover; display:block}
+.fig .box.contain img{object-fit:contain}
+figcaption{font-family:var(--fm); font-size:11.5px; line-height:1.6; letter-spacing:.02em; color:var(--ink3); padding:10px 13px; border-top:1px solid var(--rule); background:var(--card)}
+figcaption b{color:var(--ink2); font-weight:500}
+.ph{font-family:var(--fm); font-size:11px; color:var(--ink4); text-align:center; padding:20px; line-height:1.9}
+
+/* ---------- before / after ---------- */
+.ba{position:relative; aspect-ratio:16/10; overflow:hidden; cursor:ew-resize; touch-action:pan-y; user-select:none; background:var(--paper2)}
+.ba img{position:absolute; inset:0; width:100%; height:100%; object-fit:cover; display:block; pointer-events:none}
+.baB{position:absolute; inset:0; clip-path:inset(0 50% 0 0)}
+.bah{position:absolute; top:0; bottom:0; left:50%; width:1.5px; background:var(--acc); pointer-events:none}
+.bah i{position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); width:26px; height:26px; border-radius:50%; border:1.5px solid var(--acc); background:var(--card)}
+.balbl{position:absolute; top:9px; font-family:var(--fm); font-size:9.5px; letter-spacing:.12em; color:var(--ink2); background:rgba(255,253,250,.9); border:1px solid var(--rule); padding:3px 7px; pointer-events:none}
+.balbl.l{left:9px} .balbl.r{right:9px}
+
+/* ---------- rig ---------- */
+.rig{border:1px solid var(--rule); border-radius:3px; background:var(--card); overflow:hidden}
+.rigbar{display:flex; justify-content:space-between; gap:12px; padding:10px 14px; border-bottom:1px solid var(--rule); font-family:var(--fm); font-size:11px; letter-spacing:.1em; text-transform:uppercase; color:var(--ink3)}
+#rig{display:block; width:100%; height:auto; cursor:grab; touch-action:pan-y}
+@media(pointer:fine){#rig{touch-action:none}}
+#rig.drag{cursor:grabbing}
+.rigfoot{display:flex; gap:1px; background:var(--rule); border-top:1px solid var(--rule)}
+.rigfoot button{flex:1 1 auto; min-width:92px; background:var(--card); border:0; color:var(--ink2); cursor:pointer;
+  font-family:var(--fm); font-size:11px; letter-spacing:.06em; padding:11px 8px; transition:background .2s,color .2s}
+.rigfoot button:hover{background:var(--paper2); color:var(--ink)}
+.rigfoot button.on{color:var(--acc)}
+.rigtel{display:grid; grid-template-columns:repeat(auto-fit,minmax(104px,1fr)); gap:1px; background:var(--rule); border-top:1px solid var(--rule)}
+.tel{background:var(--card); padding:9px 13px}
+.tel span{display:block; font-family:var(--fm); font-size:9.5px; letter-spacing:.11em; text-transform:uppercase; color:var(--ink3)}
+.tel b{display:block; font-family:var(--fm); font-size:14px; font-weight:500; margin-top:3px}
+.tel b.ok{color:#2F6B45} .tel b.no{color:var(--acc)} .tel b.mid{color:#8A5A1B}
+
+/* ---------- timeline ---------- */
+.steps{list-style:none; margin:0; padding:0; border-top:1px solid var(--rule)}
+.steps li{display:grid; grid-template-columns:34px 200px minmax(0,1fr); gap:16px; align-items:baseline;
+  padding:13px 0; border-bottom:1px solid var(--rule)}
+@media(max-width:720px){.steps li{grid-template-columns:26px minmax(0,1fr); gap:8px 12px}
+  .steps li .d{grid-column:2}}
+.steps .n{font-family:var(--fm); font-size:11px; color:var(--ink4)}
+.steps .t{font-weight:600; font-size:17px}
+.steps .d{color:var(--ink2); font-size:16px}
+.steps li[data-k="blk"] .t{color:var(--acc)}
+.steps .n::before{content:'●'; margin-right:7px; color:var(--ink4); font-size:9px; vertical-align:2px}
+.steps li[data-k="sim"] .n::before{color:var(--plum)}
+.steps li[data-k="real"] .n::before{color:#2F6B45}
+.steps li[data-k="blk"] .n::before{color:var(--acc)}
+.key{display:flex; flex-wrap:wrap; gap:8px 20px; font-family:var(--fm); font-size:11px; color:var(--ink3); margin:0 0 20px}
+.key i{font-style:normal; margin-right:6px}
+
+/* ---------- lists / grids ---------- */
+.two{display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:clamp(24px,3.4vw,48px)}
+.cards{display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); gap:20px}
+.card{border:1px solid var(--rule); border-radius:3px; background:var(--card); padding:20px 22px; transition:border-color .25s,transform .35s cubic-bezier(.2,.8,.3,1)}
+.card:hover{border-color:var(--rule2); transform:translateY(-2px)}
+.card h4{margin-bottom:7px}
+.card p{margin:0; color:var(--ink2); font-size:16px}
+.tags{display:flex; flex-wrap:wrap; gap:6px; margin-top:14px}
+.tag{font-family:var(--fm); font-size:10.5px; letter-spacing:.04em; color:var(--ink3); border:1px solid var(--rule); border-radius:999px; padding:3px 9px}
+.tag.k{color:var(--acc); border-color:#E7CFCF; background:var(--acc-bg)}
+
+.cv{list-style:none; margin:0; padding:0; border-top:1px solid var(--rule)}
+.cv li{display:grid; grid-template-columns:160px minmax(0,1fr); gap:20px; padding:16px 0; border-bottom:1px solid var(--rule)}
+@media(max-width:640px){.cv li{grid-template-columns:minmax(0,1fr); gap:4px}}
+.cv .when{font-family:var(--fm); font-size:12px; color:var(--ink3); padding-top:3px}
+.cv h4{margin-bottom:3px}
+.cv .org{color:var(--ink3); font-size:15.5px; margin:0 0 6px}
+.cv p{margin:0; color:var(--ink2); font-size:16px}
+
+.skill{list-style:none; margin:0; padding:0; border-top:1px solid var(--rule)}
+.skill li{display:grid; grid-template-columns:150px minmax(0,1fr); gap:20px; padding:13px 0; border-bottom:1px solid var(--rule)}
+@media(max-width:640px){.skill li{grid-template-columns:minmax(0,1fr); gap:3px}}
+.skill b{font-family:var(--fm); font-size:13px; font-weight:500; color:var(--ink)}
+.skill span{color:var(--ink2); font-size:16px}
+
+/* ---------- form ---------- */
+.form label{display:block; font-family:var(--fm); font-size:11px; letter-spacing:.1em; text-transform:uppercase; color:var(--ink3); margin-bottom:15px}
+.form input,.form textarea{display:block; width:100%; margin-top:7px; background:var(--card); border:1px solid var(--rule2); border-radius:3px;
+  color:var(--ink); font-family:var(--fb); font-size:17px; padding:11px 13px; letter-spacing:0; text-transform:none; transition:border-color .2s}
+.form textarea{resize:vertical; min-height:120px; line-height:1.55}
+.form input:focus,.form textarea:focus{outline:none; border-color:var(--acc)}
+.form ::placeholder{color:var(--ink4)}
+.btn{font-family:var(--fm); font-size:12.5px; letter-spacing:.05em; padding:12px 22px; border:1px solid var(--ink); border-radius:3px;
+  background:var(--ink); color:var(--paper); text-decoration:none; display:inline-block; cursor:pointer; transition:background .2s,color .2s}
+.btn:hover{background:transparent; color:var(--ink)}
+.btn.ghost{background:transparent; color:var(--ink); border-color:var(--rule2)}
+.btn.ghost:hover{border-color:var(--ink)}
+.msg{font-family:var(--fm); font-size:12px; margin:12px 0 0; min-height:18px; color:#2F6B45}
+.msg.err{color:var(--acc)}
+
+footer{border-top:1px solid var(--rule); padding:34px 0 44px; font-family:var(--fm); font-size:11.5px; color:var(--ink3);
+  display:flex; justify-content:space-between; gap:16px; flex-wrap:wrap}
+footer a{color:var(--ink3)}
+
+.walkwrap{position:relative; margin-top:clamp(18px,3vw,34px)}
+#walk{display:block; width:100%; height:auto; cursor:pointer}
+.walkhint{position:absolute; right:4px; bottom:14px; margin:0; font-family:var(--fm); font-size:10.5px;
+  letter-spacing:.14em; text-transform:uppercase; color:var(--ink4); transition:opacity .5s}
+.walkhint.gone{opacity:0}
+@media(prefers-reduced-motion:reduce){.walkhint{display:none}}
+
+.rv{opacity:0; transform:translateY(12px); transition:opacity .6s cubic-bezier(.2,.8,.3,1),transform .6s cubic-bezier(.2,.8,.3,1)}
+.rv.in{opacity:1; transform:none}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.rv{opacity:1;transform:none}}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap hin">
+    <a class="hname" href="#top">Mohammed Suleiman</a>
+    <nav class="hnav">
+      <a href="#work">Work</a>
+      <a href="#demo">Demo</a>
+      <a href="#research">Research</a>
+      <a href="#cv">Background</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+<section id="top" class="wrap">
+  <h1>Mohammed Suleiman</h1>
+  <p class="tagline">Computer science &amp; mathematics &middot; Amherst College &middot; class of 2028</p>
+  <p class="lede">
+    I co-founded <a href="#crimson">Crimson Hosting</a>, a small web studio that builds and hosts sites for
+    local businesses. Last summer I worked in <strong>Professor Scott Alfeld&rsquo;s lab</strong> on quadruped
+    balance control and autonomous flight, and this fall I&rsquo;m continuing that work from Budapest.
+  </p>
+  <p class="lede" style="margin-top:1em">
+    I&rsquo;m looking for a <strong>software or machine learning internship for summer 2027</strong>.
+  </p>
+  <div class="avail">
+    <span class="pill on"><a href="media/resume.pdf" target="_blank" rel="noopener">Résumé (PDF)</a></span>
+    <span class="pill"><a href="mailto:msuleiman28@amherst.edu">msuleiman28@amherst.edu</a></span>
+    <span class="pill"><a href="https://github.com/msuleiman28" target="_blank" rel="noopener">GitHub</a></span>
+    <span class="pill"><a href="https://linkedin.com/in/msuleiman06/" target="_blank" rel="noopener">LinkedIn</a></span>
+  </div>
+  <div class="walkwrap">
+    <canvas id="walk" width="1040" height="300" aria-label="Line drawing of a quadruped robot"></canvas>
+    <p class="walkhint" id="walkhint">click her</p>
+  </div>
+</section>
+<section class="wrap" style="border-top:0; padding-top:0">
+  <dl class="facts rv">
+    <div class="fact"><dt>Seeking</dt><dd>SWE / ML internship, summer 2027</dd></div>
+    <div class="fact"><dt>Graduating</dt><dd>May 2028 &middot; GPA 3.67</dd></div>
+    <div class="fact"><dt>Based</dt><dd>Amherst, MA &middot; Budapest this fall</dd></div>
+    <div class="fact"><dt>Advisor</dt><dd>Prof. Scott Alfeld, Amherst College</dd></div>
+  </dl>
+</section>
+<section id="work" class="wrap">
+  <div class="shead rv">
+    <p class="eyebrow">Selected work</p>
+    <h2>Three things I&rsquo;ve built</h2>
+    <p class="body">In order of how much someone else depends on them.</p>
+  </div>
+
+  <article class="entry rv" id="crimson">
+    <div>
+      <p class="meta">2025 &ndash; present &middot; Co-founder</p>
+      <h3>Crimson Hosting</h3>
+      <div class="body">
+        <p>A web studio I co-founded with <strong>Elliot Scarengos</strong>. We design, build, host, and
+           maintain websites for small businesses on one monthly subscription &mdash; restaurants, a church,
+           local service companies. Three client sites are live and paying.</p>
+        <p>We handle everything after the design is approved: hosting, domains, uptime, performance, and the
+           steady stream of &ldquo;can you change the hours&rdquo; requests. Most new work comes from referrals.</p>
+        <p class="small">It&rsquo;s also why parts of this page read like a business rather than a student
+           project. <strong>I run one.</strong></p>
+      </div>
+      <ul class="deets">
+        <li><b>Stack</b><span>Hand-written HTML, CSS, and JavaScript &mdash; no page builders</span></li>
+        <li><b>Scope</b><span><em>Design, build, host, maintain</em> &mdash; one team instead of four vendors</span></li>
+        <li><b>Live</b><span><a href="https://crimsonhosting.com" target="_blank" rel="noopener">crimsonhosting.com</a>
+            &middot; <a href="https://creamanola.com/" target="_blank" rel="noopener">creamanola.com</a>
+            &middot; <a href="https://chilangoskenner.com/" target="_blank" rel="noopener">chilangoskenner.com</a></span></li>
+      </ul>
+    </div>
+    <figure class="fig">
+      <div class="ba" id="ba1">
+        <img src="media/ch-creama-after.webp" alt="Creama website after the redesign">
+        <div class="baB"><img src="media/ch-creama-before.webp" alt="Creama website before the redesign"></div>
+        <span class="balbl l">BEFORE</span><span class="balbl r">AFTER</span>
+        <div class="bah"><i></i></div>
+      </div>
+      <figcaption><b>Fig. 1</b> &mdash; Creama, a New Orleans dessert shop. Drag to compare. We replaced a
+        crowded text page with a site built around the product.</figcaption>
+    </figure>
+  </article>
+
+  <article class="entry rv">
+    <div>
+      <p class="meta">Summer 2026 &middot; Undergraduate research</p>
+      <h3>Getting a robot to stand on three legs</h3>
+      <div class="body">
+        <p>A quadruped standing still balances over the quadrilateral formed by its four feet. Lift one leg
+           and that shape becomes a <strong>triangle</strong>. If the center of mass is not already inside it,
+           the robot falls.</p>
+        <p>I wrote the balance controller by hand &mdash; no learned policy. It shifts the torso until the
+           projected center of mass sits inside the triangle formed by the three stance feet, then lifts the
+           front-left foot. Jacobian-based inverse kinematics converts foot targets into joint angles, and a
+           safety check between every phase sends the robot to a known stable pose rather than continuing
+           into a state I hadn&rsquo;t planned for.</p>
+        <p>It ran in NVIDIA Isaac Sim first, then on the real machine.</p>
+      </div>
+      <ul class="deets">
+        <li><b>Platform</b><span>Boston Dynamics Spot &mdash; our lab unit, <em>Daisy</em></span></li>
+        <li><b>Method</b><span>Center-of-mass shifting, Jacobian IK, staged safety gates</span></li>
+        <li><b>Result</b><span><em>Held the stance on real hardware</em></span></li>
+      </ul>
+    </div>
+    <figure class="fig">
+      <div class="box"><div class="mslot" data-media="daisy-3leg" data-label="daisy-3leg.mp4"></div></div>
+      <figcaption><b>Fig. 2</b> &mdash; Daisy holding a three-leg stance on real hardware. The front-left leg
+        is tucked; the other three form the support triangle.</figcaption>
+    </figure>
+  </article>
+
+  <article class="entry rv">
+    <div>
+      <p class="meta">Summer 2026 &middot; Undergraduate research</p>
+      <h3>Autonomous flight on a palm-sized drone</h3>
+      <div class="body">
+        <p>The Crazyflie is small enough to test safely indoors and unforgiving enough that weak control logic
+           shows up immediately. Every behavior runs <strong>onboard</strong> &mdash; optical flow, Lighthouse
+           localization, and a multiranger deck, with no laptop in the loop.</p>
+        <p>The most interesting one is throw-to-hover: you throw it, and mid-air it works out that it has been
+           thrown, spins up, arrests its own tumble, and settles. The hard part was not speed but
+           <strong>confidence</strong> &mdash; a drone that decides it is flying while still in your hand is a
+           hazard, so the free-fall threshold had to be tuned against real throws.</p>
+      </div>
+      <ul class="deets">
+        <li><b>Behaviors</b><span>Throw-to-hover, obstacle ping-pong, proximity dodge, figure eight, barrel roll</span></li>
+        <li><b>Sensing</b><span>Optical flow, Lighthouse localization, multiranger, AI-deck vision</span></li>
+        <li><b>Also</b><span>Printed replacement motor mounts so a downed drone flew again <em>the same day</em></span></li>
+      </ul>
+    </div>
+    <figure class="fig">
+      <div class="box sq"><div class="mslot" data-media="cf-throw-hover" data-label="cf-throw-hover.mp4"></div></div>
+      <figcaption><b>Fig. 3</b> &mdash; Throw to hover. Released by hand, it detects free fall and catches its
+        own hover with no operator input.</figcaption>
+    </figure>
+  </article>
+</section>
+<section id="demo" class="wrap">
+  <div class="shead rv">
+    <p class="eyebrow">Interactive</p>
+    <h2>The three-leg problem, playable</h2>
+    <p class="body">This is a working model of the robot above, seen from its left side, running the same
+      two-link inverse kinematics I wrote for the real one. <strong>Drag the body. Drag a foot. Click a foot
+      to lift it.</strong> The readout tells you whether it would actually stay standing.</p>
+  </div>
+  <div class="rig rv">
+    <div class="rigbar"><span>Quadruped &middot; side elevation</span><span>2-link IK, live</span></div>
+    <canvas id="rig" width="1040" height="560"></canvas>
+    <div class="rigfoot">
+      <button data-r="reset">Reset</button>
+      <button data-r="three">Three-leg stance</button>
+      <button data-r="two">Rear-leg stance</button>
+      <button data-r="dance">Dance</button>
+      <button data-r="math" class="on">Show geometry</button>
+    </div>
+    <div class="rigtel">
+      <div class="tel"><span>Support</span><b id="t-sup">4-leg</b></div>
+      <div class="tel"><span>Margin</span><b id="t-mar">—</b></div>
+      <div class="tel"><span>Hip, front-left</span><b id="t-hip">0.0°</b></div>
+      <div class="tel"><span>Knee, front-left</span><b id="t-knee">0.0°</b></div>
+      <div class="tel"><span>State</span><b id="t-state" class="ok">Stable</b></div>
+    </div>
+  </div>
+  <p class="body small rv" style="margin-top:16px; color:var(--ink3)">
+    Lift a leg before shifting the weight and the margin goes negative &mdash; that is the whole problem the
+    real controller had to solve, and why the torso moves first.
+  </p>
+</section>
+<section id="research" class="wrap">
+  <div class="shead rv">
+    <p class="eyebrow">Research &middot; summer 2026</p>
+    <h2>How it actually went</h2>
+    <p class="body">Research reads like a straight line once it is finished. It wasn&rsquo;t. This is the real
+      order, including the two points where the project nearly stopped.</p>
+  </div>
+  <p class="key rv">
+    <span><i>●</i>decision or blocker</span>
+    <span><i style="color:var(--plum)">●</i>worked in simulation</span>
+    <span><i style="color:#2F6B45">●</i>worked on the real robot</span>
+  </p>
+  <ol class="steps rv">
+    <li data-k="dec"><span class="n">01</span><span class="t">High-level control</span><span class="d">Learned the platform through Spot&rsquo;s high-level API.</span></li>
+    <li data-k="dec"><span class="n">02</span><span class="t">Low-level ruled out</span><span class="d">Raw joint commands risked breaking the real robot.</span></li>
+    <li data-k="dec"><span class="n">03</span><span class="t">Simulate first</span><span class="d">Risky motions had to be proven in software before hardware.</span></li>
+    <li data-k="blk"><span class="n">04</span><span class="t">Blocker: no GPU</span><span class="d">Isaac Sim needed hardware we would have had to rent.</span></li>
+    <li data-k="dec"><span class="n">05</span><span class="t">Would FrostByte take it?</span><span class="d">Nobody had configured the college cluster for Isaac Sim before.</span></li>
+    <li data-k="real"><span class="n">06</span><span class="t">I set it up</span><span class="d">Proposed FrostByte, then got Isaac Sim running on it.</span></li>
+    <li data-k="sim"><span class="n">07</span><span class="t">Three legs in sim</span><span class="d">The simulated Spot held a stable three-leg stance.</span></li>
+    <li data-k="sim"><span class="n">08</span><span class="t">Sim-to-real pipeline</span><span class="d">A staged path to hardware that could not damage Spot.</span></li>
+    <li data-k="real"><span class="n">09</span><span class="t">It worked for real</span><span class="d">The real Spot held the three-leg stance.</span></li>
+    <li data-k="sim"><span class="n">10</span><span class="t">Two legs in Isaac Lab</span><span class="d">A learned policy, working in simulation; the summer ended before deployment.</span></li>
+  </ol>
+
+  <div class="two rv" style="margin-top:clamp(40px,5vw,64px)">
+    <div>
+      <h3 style="margin-bottom:14px">Isaac Sim on a shared cluster</h3>
+      <div class="body">
+        <p>Isaac Sim expects a workstation with a display. A shared HPC cluster gives you neither, and nobody
+          knew whether Amherst&rsquo;s <strong>FrostByte</strong> could run it at all.</p>
+        <p>With help from IT I containerized the runtime with Enroot, requested GPUs through SLURM, and built
+          a headless rendering path. That let us train on the college&rsquo;s own A5000 and A100 GPUs instead
+          of a cloud bill we could not cover &mdash; and I wrote the setup down so the next student starts
+          from a tested environment.</p>
+        <p>The reinforcement learning work sat on top of it: <strong>2,400 simulated robots stepping in
+          parallel</strong>, converging in about six hours, each with a randomized payload and floor friction
+          so the policy could not memorize one perfectly-known machine.</p>
+      </div>
+    </div>
+    <div>
+      <figure class="fig">
+        <div class="box wide"><div class="mslot" data-media="frostbyte" data-label="frostbyte.jpg"></div></div>
+        <figcaption><b>Fig. 4</b> &mdash; FrostByte, Amherst&rsquo;s on-premise cluster.</figcaption>
+      </figure>
+      <figure class="fig" style="margin-top:18px">
+        <div class="box"><div class="mslot" data-media="spot-2leg-rl" data-label="spot-2leg-rl.mp4"></div></div>
+        <figcaption><b>Fig. 5</b> &mdash; Nine of the 2,400 parallel environments in Isaac Lab, balancing on
+          two rear legs under a learned policy.</figcaption>
+      </figure>
+    </div>
+  </div>
+
+  <div class="rv" style="margin-top:clamp(40px,5vw,64px)">
+    <h3 style="margin-bottom:14px">Poster</h3>
+    <div class="two">
+      <figure class="fig">
+        <div class="box contain" style="aspect-ratio:4/3; background:var(--card)">
+          <div class="mslot" data-media="poster" data-label="poster.jpg"></div>
+        </div>
+        <figcaption><b>Fig. 6</b> &mdash; Summer research poster, presented at Amherst College.
+          <a href="media/poster.pdf" target="_blank" rel="noopener" style="color:var(--acc)">Open the PDF</a>
+          to read it at full size.</figcaption>
+      </figure>
+      <div class="body">
+        <p>The whole summer on one board: hand-written balance control on Spot and Daisy, the rear-leg policy
+          trained in Isaac Lab, and the flight behaviors developed on the Crazyflie.</p>
+        <p><strong>What&rsquo;s next.</strong> I&rsquo;m in Budapest this fall, continuing the reinforcement
+          learning work as an independent project with Professor Alfeld and training on FrostByte remotely
+          &mdash; which is the reason documenting that setup mattered. In the spring I plan to put those
+          policies onto the real robots through a special topics course.</p>
+      </div>
+    </div>
+  </div>
+</section>
+<section id="cv" class="wrap">
+  <div class="shead rv">
+    <p class="eyebrow">Background</p>
+    <h2>Education and experience</h2>
+  </div>
+  <ul class="cv rv">
+    <li><span class="when">Expected May 2028</span>
+      <div><h4>B.A. Computer Science &amp; Mathematics</h4>
+        <p class="org">Amherst College &middot; GPA 3.67</p>
+        <p>Machine Learning &middot; Artificial Intelligence &middot; Data Structures &middot; Computer Systems
+           &middot; Multivariable Calculus &middot; Mathematical Reasoning</p></div></li>
+    <li><span class="when">Jun &ndash; Aug 2026</span>
+      <div><h4>Undergraduate Research Fellow</h4>
+        <p class="org">Amherst College &middot; advised by Prof. Scott Alfeld</p>
+        <p>Quadruped balance control on Boston Dynamics Spot, reinforcement learning in NVIDIA Isaac Lab, and
+           autonomous flight behaviors on Crazyflie drones. Set up Isaac Sim on the college HPC cluster.</p></div></li>
+    <li><span class="when">2025 &ndash; present</span>
+      <div><h4>Co-founder</h4>
+        <p class="org">Crimson Hosting</p>
+        <p>Design, build, host, and maintain websites for small businesses on a monthly subscription.
+           Three client sites live.</p></div></li>
+    <li><span class="when">Aug 2025 &ndash; present</span>
+      <div><h4>Postal Clerk</h4>
+        <p class="org">Amherst College</p>
+        <p>Processing incoming packages and helping students locate and retrieve deliveries.</p></div></li>
+    <li><span class="when">Jul &ndash; Aug 2025</span>
+      <div><h4>Summerbridge Residential Tutor</h4>
+        <p class="org">Amherst College</p>
+        <p>Tutoring, study sessions, and residential programming for first-year students.</p></div></li>
+    <li><span class="when">Sep 2023 &ndash; Jun 2024</span>
+      <div><h4>Freight Coordinator</h4>
+        <p class="org">A&amp;W Friends Transportation LLC &middot; remote</p>
+        <p>Dispatching, load booking, and shipment tracking for up to three commercial trucks.</p></div></li>
+  </ul>
+
+  <h3 class="rv" style="margin:clamp(40px,5vw,60px) 0 6px">What I use, and what I used it for</h3>
+  <p class="body rv" style="margin-bottom:20px">Listed with the thing it was actually for, rather than a
+    proficiency label.</p>
+  <ul class="skill rv">
+    <li><b>Python</b><span>Isaac Lab training scripts, the Spot balance controller, Crazyflie flight behaviors,
+        and processing the summer&rsquo;s results.</span></li>
+    <li><b>Java</b><span>Amherst coursework &mdash; Data Structures and Computer Systems &mdash; and the
+        backend of the Mammoth ReServe hackathon build.</span></li>
+    <li><b>Bash &amp; Linux</b><span>SLURM job scripts, Enroot containers, and everything to do with getting
+        Isaac Sim running headless on FrostByte.</span></li>
+    <li><b>R</b><span>Statistics coursework and the data analysis that went with it.</span></li>
+    <li><b>HTML, CSS, JavaScript</b><span>Every Crimson Hosting client site, written by hand, and this page.</span></li>
+    <li><b>Tools</b><span>NVIDIA Isaac Sim and Isaac Lab, Boston Dynamics Spot SDK, crazyflie-lib, SLURM,
+        Enroot, Git.</span></li>
+    <li><b>Concepts</b><span>Inverse kinematics, Jacobians, feedback control, reinforcement learning, domain
+        randomization, sim-to-real transfer.</span></li>
+  </ul>
+
+  <h3 class="rv" style="margin:clamp(40px,5vw,60px) 0 20px">Hackathons</h3>
+  <div class="cards rv">
+    <div class="card">
+      <h4>Mammoth ReServe</h4>
+      <p>A platform routing surplus campus food to students and local food banks. Dining halls log what is
+         left; the system matches it with groups who can collect it before it is thrown out.</p>
+      <div class="tags"><span class="tag k">First place</span><span class="tag">Hack the Herd 2025</span></div>
+    </div>
+    <div class="card">
+      <h4>SmartCart</h4>
+      <p>A grocery planner that compares stores, route order, and total cost, using the Google Maps Places and
+         Gemini APIs to weigh travel time against price.</p>
+      <div class="tags"><span class="tag k">Second place</span><span class="tag">BrainJam 2026</span></div>
+    </div>
+  </div>
+</section>
+<section id="contact" class="wrap">
+  <div class="shead rv">
+    <p class="eyebrow">Contact</p>
+    <h2>Get in touch</h2>
+    <p class="body">Looking for a software or machine learning internship for summer 2027. The fastest way to
+      reach me is email.</p>
+  </div>
+  <div class="two">
+    <div class="rv">
+      <ul class="skill" style="border-top:1px solid var(--rule)">
+        <li><b>Email</b><span><a href="mailto:msuleiman28@amherst.edu" style="color:var(--acc)">msuleiman28@amherst.edu</a></span></li>
+        <li><b>GitHub</b><span><a href="https://github.com/msuleiman28" target="_blank" rel="noopener" style="color:var(--acc)">github.com/msuleiman28</a></span></li>
+        <li><b>LinkedIn</b><span><a href="https://linkedin.com/in/msuleiman06/" target="_blank" rel="noopener" style="color:var(--acc)">linkedin.com/in/msuleiman06</a></span></li>
+        <li><b>Résumé</b><span><a href="media/resume.pdf" target="_blank" rel="noopener" style="color:var(--acc)">Download PDF</a></span></li>
+      </ul>
+    </div>
+    <div class="form rv">
+      <form id="cform" novalidate action="https://formspree.io/f/xjybvbwz" method="POST" data-endpoint="https://formspree.io/f/xjybvbwz">
+        <input type="hidden" name="_subject" value="Message from your site">
+        <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0">
+        <label>Name<input name="name" type="text" autocomplete="name" placeholder="Jane Rivera"></label>
+        <label>Email<input name="email" type="email" autocomplete="email" placeholder="jane@company.com"></label>
+        <label>Message<textarea name="message" rows="5" placeholder="What are you working on?"></textarea></label>
+        <button class="btn" type="submit">Send</button>
+        <p class="msg" id="cfmsg"></p>
+      </form>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="wrap">
+  <span>Mohammed Suleiman &middot; Amherst College, class of 2028</span>
+  <span>Last updated August 2026</span>
+</footer>
+
+<script>
+(function(){
+'use strict';
+var RM=window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+var $=function(s,c){return (c||document).querySelector(s);};
+var $$=function(s,c){return Array.prototype.slice.call((c||document).querySelectorAll(s));};
+var clamp=function(v,a,b){return v<a?a:(v>b?b:v);};
+
+/* ---------- reveal ---------- */
+if('IntersectionObserver' in window && !RM){
+  var io=new IntersectionObserver(function(es){
+    es.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
+  },{threshold:.08, rootMargin:'0px 0px -5% 0px'});
+  $$('.rv').forEach(function(e){ io.observe(e); });
+} else $$('.rv').forEach(function(e){ e.classList.add('in'); });
+
+/* ---------- media ---------- */
+var VID=['mp4','webm'], IMG=['jpg','png','webp','gif'];
+var vio=('IntersectionObserver' in window)?new IntersectionObserver(function(es){
+  es.forEach(function(e){ if(e.isIntersecting){var p=e.target.play();if(p&&p['catch'])p['catch'](function(){});} else e.target.pause(); });
+},{threshold:.05}):null;
+$$('.mslot').forEach(function(el){
+  var name=el.getAttribute('data-media'), c=[], i;
+  for(i=0;i<VID.length;i++) c.push({t:'v',u:'media/'+name+'.'+VID[i]});
+  for(i=0;i<IMG.length;i++) c.push({t:'i',u:'media/'+name+'.'+IMG[i]});
+  var st=c.map(function(){return 0;}), nodes=[], done=false;
+  function settle(){
+    if(done) return;
+    for(var j=0;j<c.length;j++){
+      if(st[j]===0) return;
+      if(st[j]===1){ done=true; el.innerHTML=''; el.appendChild(nodes[j]);
+        if(nodes[j].play){ var pr=nodes[j].play(); if(pr&&pr['catch'])pr['catch'](function(){}); if(vio) vio.observe(nodes[j]); }
+        return; }
+    }
+    done=true;
+    el.innerHTML='<div class="ph">figure pending<br>'+(el.getAttribute('data-label')||name)+'</div>';
+  }
+  c.forEach(function(it,j){
+    var n;
+    if(it.t==='i'){ n=new Image(); n.alt=name.replace(/-/g,' '); }
+    else { n=document.createElement('video'); n.muted=true; n.loop=true; n.autoplay=true; n.playsInline=true;
+           n.setAttribute('playsinline',''); n.preload='metadata'; }
+    nodes[j]=n;
+    var mark=function(v){ if(st[j]===0){ st[j]=v; settle(); } };
+    if(it.t==='i'){ n.onload=function(){mark(1);}; n.onerror=function(){mark(-1);}; }
+    else { n.onloadeddata=function(){mark(1);}; n.onerror=function(){mark(-1);}; }
+    n.src=it.u;
+    setTimeout(function(){ mark(it.t==='i'?(n.naturalWidth>0?1:-1):(n.readyState>=2?1:-1)); },4500);
+  });
+});
+
+/* ---------- before / after ---------- */
+$$('.ba').forEach(function(w){
+  var b=$('.baB',w), hd=$('.bah',w), drag=false;
+  function set(v){ v=clamp(v,1,99); b.style.clipPath='inset(0 '+(100-v)+'% 0 0)'; hd.style.left=v+'%'; }
+  function at(e){ var r=w.getBoundingClientRect(); set((e.clientX-r.left)/r.width*100); }
+  set(50);
+  w.addEventListener('pointerdown',function(e){ drag=true; try{w.setPointerCapture(e.pointerId);}catch(x){} at(e); });
+  w.addEventListener('pointermove',function(e){ if(drag||e.pointerType==='mouse') at(e); });
+  w.addEventListener('pointerup',function(){drag=false;});
+  w.addEventListener('pointerleave',function(){ drag=false; if(!RM) set(50); });
+});
+
+/* ---------- contact ---------- */
+(function(){
+  var f=$('#cform'); if(!f) return;
+  var out=$('#cfmsg');
+  function val(k){ var e=f.querySelector('[name="'+k+'"]'); return e?e.value.trim():''; }
+  f.addEventListener('submit',function(ev){
+    ev.preventDefault();
+    var nm=val('name'), em=val('email'), ms=val('message');
+    out.className='msg';
+    if(!nm||!em||!ms){ out.className='msg err'; out.textContent='Please fill in all three fields.'; return; }
+    if(!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(em)){ out.className='msg err'; out.textContent='That email address looks wrong.'; return; }
+    var btn=f.querySelector('button[type="submit"]'), was=btn?btn.textContent:'';
+    if(btn){ btn.disabled=true; btn.textContent='Sending…'; }
+    function done(ok,m){ if(btn){btn.disabled=false;btn.textContent=was;} out.className=ok?'msg':'msg err'; out.textContent=m; if(ok) f.reset(); }
+    out.textContent='Sending…';
+    fetch(f.getAttribute('data-endpoint'),{method:'POST',headers:{Accept:'application/json'},body:new FormData(f)})
+      .then(function(r){
+        if(r.ok){ done(true,'Sent. I will reply soon.'); return; }
+        r.json().then(function(j){
+          var m='Something went wrong. Please email me directly.';
+          if(j&&j.errors&&j.errors.length) m=j.errors.map(function(e){return e.message;}).join(' ');
+          done(false,m);
+        })['catch'](function(){ done(false,'Something went wrong. Please email me directly.'); });
+      })['catch'](function(){ done(false,'Could not send. Please email me directly.'); });
+  });
+})();
+
+/* ---------- hero: she walks in, then lives there ---------- */
+(function(){
+  var cv=document.getElementById('walk'); if(!cv) return;
+  var ctx=cv.getContext('2d'); if(!ctx) return;
+  var W=1040,H=300, dpr=Math.min(window.devicePixelRatio||1,2);
+  cv.width=W*dpr; cv.height=H*dpr; ctx.setTransform(dpr,0,0,dpr,0,0);
+  var L1=58,L2=62,BL=150,BH=24,HIPX=66,GY=252,HOME=560,BY=147;
+  var INK='#17150F', FAR='#C3B9AC', RULE='#DCD3C4', ACC='#7A2233';
+  var hint=document.getElementById('walkhint'), touched=false;
+
+  var st={x:-180, y:BY, pitch:0, mode:'walkin', t0:0, next:2600, flip:-1, blink:0};
+  var legs=[{hx:HIPX,ph:0,near:true},{hx:HIPX,ph:Math.PI,near:false},
+            {hx:-HIPX,ph:Math.PI,near:true},{hx:-HIPX,ph:0,near:false}];
+  var vis=true;
+  if('IntersectionObserver' in window)
+    new IntersectionObserver(function(e){vis=e[0].isIntersecting;},{threshold:0}).observe(cv);
+
+  function ik(hx,hy,fx,fy){
+    var dx=fx-hx,dy=fy-hy,d=Math.sqrt(dx*dx+dy*dy);
+    d=Math.max(Math.abs(L1-L2)+4,Math.min(L1+L2-3,d));
+    var a=Math.atan2(dy,dx),cx=hx+Math.cos(a)*d,cy=hy+Math.sin(a)*d;
+    var ca=Math.max(-1,Math.min(1,(d*d+L1*L1-L2*L2)/(2*d*L1))),t1=a+Math.acos(ca);
+    return {kx:hx+Math.cos(t1)*L1,ky:hy+Math.sin(t1)*L1,fx:cx,fy:cy};
+  }
+  cv.addEventListener('click',function(){
+    if(!touched){touched=true; if(hint) hint.classList.add('gone');}
+    if(st.mode==='idle'){ st.mode='flip'; st.t0=performance.now(); }
+  });
+
+  function frame(now){
+    requestAnimationFrame(frame);
+    if(!vis) return;
+    var t=now/1000, i;
+    ctx.clearRect(0,0,W,H);
+
+    var gait=0, lift=0, rot=null, bob=0, nod=0, shift=0;
+
+    if(st.mode==='walkin'){
+      st.x+=6.4; gait=t*7.6;
+      if(st.x>=HOME){ st.x=HOME; st.mode='idle'; st.t0=now; st.next=1800+Math.random()*2600; }
+    } else if(st.mode==='idle'){
+      bob=Math.sin(t*1.9)*1.5; nod=Math.sin(t*1.9+0.6)*0.012;
+      if(now-st.t0>st.next){
+        st.t0=now; st.next=2600+Math.random()*3400;
+        st.mode=Math.random()<0.45?'nod':'shift';
+      }
+    } else if(st.mode==='nod'){
+      var u=(now-st.t0)/900;
+      if(u>=1){ st.mode='idle'; st.t0=now; st.next=2600+Math.random()*3200; }
+      else { nod=Math.sin(u*Math.PI)*0.16; bob=Math.sin(u*Math.PI)*3; }
+    } else if(st.mode==='shift'){
+      var u2=(now-st.t0)/1500;
+      if(u2>=1){ st.mode='idle'; st.t0=now; st.next=2800+Math.random()*3400; }
+      else { shift=Math.sin(u2*Math.PI*2)*9; bob=Math.sin(u2*Math.PI)*2; }
+    } else if(st.mode==='flip'){
+      var f=(now-st.t0)/1500;
+      if(f>=1){ st.mode='idle'; st.t0=now; st.next=2200+Math.random()*2600; }
+      else if(f<0.17){ bob=Math.sin(f/0.17*Math.PI/2)*13; }
+      else if(f<0.87){ var a2=(f-0.17)/0.70; lift=Math.sin(a2*Math.PI)*62; rot=-a2*Math.PI*2; }
+      else { bob=Math.sin((f-0.87)/0.13*Math.PI)*9; }
+    }
+
+    var bx=st.x+shift, by=BY+bob-lift;
+    var pitch=(rot!==null)?rot:nod;
+    var tuck=(rot!==null)?Math.min(1,Math.sin(((now-st.t0)/1500-0.17)/0.70*Math.PI)*2.4):0;
+    var c=Math.cos(pitch),s=Math.sin(pitch);
+
+    ctx.save(); ctx.strokeStyle=RULE; ctx.lineWidth=1;
+    ctx.beginPath(); ctx.moveTo(30,GY); ctx.lineTo(W-30,GY); ctx.stroke(); ctx.restore();
+
+    function drawLeg(l,far){
+      var hx=bx+l.hx*c, hy=by+l.hx*s;
+      var ph=gait+l.ph, up=Math.max(0,Math.sin(ph));
+      var gx=hx-Math.cos(ph)*(st.mode==='walkin'?20:0), gy=GY-up*(st.mode==='walkin'?24:0);
+      var lx=(l.hx>0?9:-9), ly=38;
+      var tx=hx+lx*c-ly*s, ty=hy+lx*s+ly*c;
+      var fx=gx+(tx-gx)*tuck, fy=gy+(ty-gy)*tuck;
+      var so=ik(hx,hy,fx,Math.min(fy,GY));
+      var ox=far?-11:0, oy=far?-5:0;
+      ctx.save(); ctx.lineCap='round'; ctx.lineJoin='round';
+      ctx.strokeStyle=far?FAR:INK; ctx.lineWidth=far?1.4:2;
+      ctx.beginPath(); ctx.moveTo(hx+ox,hy+oy); ctx.lineTo(so.kx+ox,so.ky+oy); ctx.lineTo(so.fx+ox,so.fy+oy); ctx.stroke();
+      if(!far){ ctx.fillStyle=ACC; ctx.beginPath(); ctx.arc(so.fx,so.fy,2.4,0,Math.PI*2); ctx.fill(); }
+      ctx.restore();
+    }
+
+    /* far legs, body, near legs — the body sits between the two sides */
+    for(i=0;i<4;i++) if(!legs[i].near) drawLeg(legs[i],true);
+
+    ctx.save(); ctx.translate(bx,by); ctx.rotate(pitch);
+    ctx.strokeStyle=INK; ctx.lineWidth=2; ctx.fillStyle='#FBF8F3';
+    ctx.beginPath();
+    if(ctx.roundRect) ctx.roundRect(-BL/2,-BH/2,BL,BH,5); else ctx.rect(-BL/2,-BH/2,BL,BH);
+    ctx.fill(); ctx.stroke();
+    ctx.strokeStyle=RULE; ctx.lineWidth=1.2;
+    ctx.beginPath(); ctx.rect(-54,-BH/2-10,42,10); ctx.stroke();
+    ctx.strokeStyle=INK; ctx.lineWidth=1.6; ctx.fillStyle='#FBF8F3';
+    ctx.beginPath(); ctx.rect(BL/2-1,-BH/2+2,11,12); ctx.fill(); ctx.stroke();
+    if(now%3400<120) st.blink=1; else st.blink*=0.86;
+    ctx.fillStyle=ACC; ctx.globalAlpha=0.35+0.65*(1-st.blink);
+    ctx.beginPath(); ctx.arc(BL/2+5,-BH/2+8,1.7,0,Math.PI*2); ctx.fill();
+    ctx.restore();
+
+    for(i=0;i<4;i++) if(legs[i].near) drawLeg(legs[i],false);
+  }
+  requestAnimationFrame(frame);
+})();
+
+/* ---------- quadruped ---------- */
+(function(){
+  var cv=$('#rig'); if(!cv) return;
+  var ctx=cv.getContext('2d'); if(!ctx) return;
+  var W=1040,H=560, dpr=Math.min(window.devicePixelRatio||1,2);
+  cv.width=W*dpr; cv.height=H*dpr; ctx.setTransform(dpr,0,0,dpr,0,0);
+
+  var L1=110,L2=118,BL=300,BH=48,HIPX=132,LAT=54,GY=440,PPM=270;
+  var C={ink:'#2A2620', far:'#BDB3A6', acc:'#7A2233', rule:'#CFC5B4', soft:'#8C837A',
+          ok:'#2F6B45', mid:'#8A5A1B', plum:'#3F2A56'};
+  var MONO="'IBM Plex Mono',ui-monospace,monospace";
+  var S={bx:470, by:250, pitch:0, lat:0};
+  var legs=[
+    {id:'FL', hx: HIPX, lat:-LAT, near:true,  fx:602, fy:GY, planted:true},
+    {id:'FR', hx: HIPX, lat: LAT, near:false, fx:602, fy:GY, planted:true},
+    {id:'RL', hx:-HIPX, lat:-LAT, near:true,  fx:338, fy:GY, planted:true},
+    {id:'RR', hx:-HIPX, lat: LAT, near:false, fx:338, fy:GY, planted:true}
+  ];
+  var geom=true, drag=null, moved=0, tw=null, small=false;
+  var MM={x:806,y:38,w:200,h:150}, MMC={x:906,y:130};
+
+  function hip(l){ var c=Math.cos(S.pitch),s=Math.sin(S.pitch);
+    return {x:S.bx+l.hx*c, y:S.by+l.hx*s}; }
+  function ik(hx,hy,fx,fy){
+    var dx=fx-hx,dy=fy-hy,d=Math.sqrt(dx*dx+dy*dy);
+    d=clamp(d,Math.abs(L1-L2)+6,L1+L2-4);
+    var a=Math.atan2(dy,dx), cx=hx+Math.cos(a)*d, cy=hy+Math.sin(a)*d;
+    var ca=clamp((d*d+L1*L1-L2*L2)/(2*d*L1),-1,1), t1=a+Math.acos(ca);
+    return {kx:hx+Math.cos(t1)*L1, ky:hy+Math.sin(t1)*L1, fx:cx, fy:cy, hipA:t1,
+            kneeA:Math.atan2(cy-(hy+Math.sin(t1)*L1), cx-(hx+Math.cos(t1)*L1))};
+  }
+  function solve(l){
+    var hp=hip(l), ty=Math.min(l.fy,GY), s=ik(hp.x,hp.y,l.fx,ty);
+    if(s.fy>GY+0.5) s=ik(hp.x,hp.y,s.fx,GY);
+    return {h:hp,s:s};
+  }
+  function hull(p){
+    if(p.length<3) return p.slice();
+    var q=p.slice().sort(function(a,b){return a.x-b.x||a.y-b.y;}),i,lo=[],up=[];
+    function cr(o,a,b){return (a.x-o.x)*(b.y-o.y)-(a.y-o.y)*(b.x-o.x);}
+    for(i=0;i<q.length;i++){while(lo.length>=2&&cr(lo[lo.length-2],lo[lo.length-1],q[i])<=0)lo.pop();lo.push(q[i]);}
+    for(i=q.length-1;i>=0;i--){while(up.length>=2&&cr(up[up.length-2],up[up.length-1],q[i])<=0)up.pop();up.push(q[i]);}
+    lo.pop();up.pop();return lo.concat(up);
+  }
+  function inPoly(pt,poly){var c=false;
+    for(var i=0,j=poly.length-1;i<poly.length;j=i++){
+      if(((poly[i].y>pt.y)!==(poly[j].y>pt.y))&&(pt.x<(poly[j].x-poly[i].x)*(pt.y-poly[i].y)/(poly[j].y-poly[i].y)+poly[i].x))c=!c;}
+    return c;}
+  function segD(p,a,b){var vx=b.x-a.x,vy=b.y-a.y,wx=p.x-a.x,wy=p.y-a.y;
+    var L=vx*vx+vy*vy,t=L?clamp((wx*vx+wy*vy)/L,0,1):0;
+    return Math.hypot(p.x-(a.x+vx*t),p.y-(a.y+vy*t));}
+  function support(){
+    var pl=legs.filter(function(l){return l.planted;});
+    var pts=pl.map(function(l){return {x:l.fx,y:l.lat};});
+    var poly=pts.length>=3?hull(pts):pts;
+    var com={x:S.bx,y:S.lat}, inside=false, margin=0;
+    if(poly.length>=3){
+      inside=inPoly(com,poly); var m=1e9;
+      for(var i=0,j=poly.length-1;i<poly.length;j=i++) m=Math.min(m,segD(com,poly[j],poly[i]));
+      margin=inside?m:-m;
+    }
+    var cm=margin/PPM*100;
+    var state = pl.length>=3 ? (margin<=0?'Tipping':(cm<4?'Marginal':'Stable'))
+              : (pl.length===2?'Dynamic only':'Falling');
+    return {pl:pl,poly:poly,com:com,margin:margin,state:state,n:pl.length};
+  }
+  function feasible(bx,by,pitch){
+    var c=Math.cos(pitch),s=Math.sin(pitch),mx=L1+L2-4,i;
+    var pts=[[-BL/2,-BH/2],[BL/2,-BH/2],[BL/2,BH/2],[-BL/2,BH/2]];
+    for(i=0;i<pts.length;i++) if(by+pts[i][0]*s+pts[i][1]*c>GY-12) return false;
+    for(i=0;i<legs.length;i++){
+      var l=legs[i], hx=bx+l.hx*c, hy=by+l.hx*s, ty=Math.min(l.fy,GY);
+      if(hy>GY-34) return false;
+      if(l.planted && Math.hypot(l.fx-hx,ty-hy)>mx) return false;
+      var so=ik(hx,hy,l.fx,ty);
+      if(so.ky>GY-4||so.fy>GY+1) return false;
+    }
+    return true;
+  }
+  function bisect(f,t){
+    if(feasible(t.bx,t.by,t.pitch)) return t;
+    var a=0,b=1,ok=f;
+    for(var k=0;k<12;k++){var m=(a+b)/2,
+      q={bx:f.bx+(t.bx-f.bx)*m,by:f.by+(t.by-f.by)*m,pitch:f.pitch+(t.pitch-f.pitch)*m};
+      if(feasible(q.bx,q.by,q.pitch)){ok=q;a=m;}else b=m;}
+    return ok;
+  }
+  function settle(bx,by,pitch){
+    var c={bx:S.bx,by:S.by,pitch:S.pitch};
+    c=bisect(c,{bx:bx,by:by,pitch:pitch});
+    c=bisect(c,{bx:bx,by:c.by,pitch:c.pitch});
+    c=bisect(c,{bx:c.bx,by:by,pitch:c.pitch});
+    return bisect(c,{bx:c.bx,by:c.by,pitch:pitch});
+  }
+  function mm(p){ return {x:MMC.x+(p.x-470)*0.36, y:MMC.y+p.y*0.62}; }
+  function mmInv(p){ return {x:(p.x-MMC.x)/0.36+470, y:(p.y-MMC.y)/0.62}; }
+  function toLocal(e){ var r=cv.getBoundingClientRect();
+    return {x:(e.clientX-r.left)*(W/r.width), y:(e.clientY-r.top)*(H/r.height)}; }
+
+  cv.addEventListener('pointerdown',function(e){
+    try{cv.setPointerCapture(e.pointerId);}catch(x){}
+    var p=toLocal(e); moved=0; tw=null; dance=null;
+    var cq=mm({x:S.bx,y:S.lat});
+    if(!small && Math.hypot(p.x-cq.x,p.y-cq.y)<20){ drag={t:'com'}; cv.classList.add('drag'); return; }
+    for(var pass=0;pass<2;pass++) for(var i=0;i<legs.length;i++){
+      var l=legs[i]; if((pass===0)!==!!l.near) continue;
+      var ox=l.near?0:-14, oy=l.near?0:-6;
+      if(Math.hypot(p.x-(l.fx+ox),p.y-(l.fy+oy))<(small?34:24)){ drag={t:'foot',l:l,ox:ox,oy:oy}; cv.classList.add('drag'); return; }
+    }
+    var c=Math.cos(-S.pitch),s=Math.sin(-S.pitch);
+    var rx=(p.x-S.bx)*c-(p.y-S.by)*s, ry=(p.x-S.bx)*s+(p.y-S.by)*c;
+    if(Math.abs(rx)<BL/2+14&&Math.abs(ry)<BH/2+14){
+      drag={t:'body',ox:p.x-S.bx,oy:p.y-S.by,f:legs.map(function(l){return {l:l,dx:l.fx-S.bx,dy:l.fy-S.by};})};
+      cv.classList.add('drag');
+    }
+  });
+  cv.addEventListener('pointermove',function(e){
+    if(!drag) return; moved++;
+    var p=toLocal(e);
+    if(drag.t==='com'){
+      var w=mmInv(p); var r=settle(clamp(w.x,360,600),S.by,S.pitch);
+      S.bx=r.bx; S.lat=clamp(w.y,-88,88);
+    } else if(drag.t==='foot'){
+      var l=drag.l, hp=hip(l), tx=p.x-drag.ox, ty=p.y-drag.oy;
+      var dx=tx-hp.x, dy=ty-hp.y, d=Math.hypot(dx,dy), mx=L1+L2-6;
+      if(d>mx){dx*=mx/d;dy*=mx/d;}
+      l.fx=hp.x+dx; l.fy=Math.min(hp.y+dy,GY);
+      l.planted=l.fy>GY-8; if(l.planted) l.fy=GY;
+    } else if(drag.t==='body'){
+      var r2=settle(clamp(p.x-drag.ox,360,600),clamp(p.y-drag.oy,190,330),S.pitch);
+      S.bx=r2.bx; S.by=r2.by;
+      drag.f.forEach(function(q){ if(!q.l.planted){ q.l.fx=S.bx+q.dx; q.l.fy=S.by+q.dy; } });
+    }
+  });
+  function up(){
+    if(drag&&drag.t==='foot'&&moved<3){
+      var l=drag.l, hp=hip(l);
+      if(l.planted){ l.planted=false; l.fx=hp.x+22; l.fy=hp.y+86; }
+      else if(GY-hp.y<L1+L2-8){ l.planted=true; l.fx=hp.x; l.fy=GY; }
+    }
+    drag=null; cv.classList.remove('drag');
+  }
+  cv.addEventListener('pointerup',up); cv.addEventListener('pointercancel',up);
+
+  var dance=null;
+  var ROUTINE=[
+    {n:'bounce', d:2.2, f:function(u){ var p=u*Math.PI*2*2.4, q=Math.abs(Math.sin(p));
+      return {bx:470,by:250+q*18,pitch:Math.sin(p*2)*0.04,lat:0,
+        f:[{x:602,y:GY},{x:602,y:GY},{x:338,y:GY},{x:338,y:GY}]}; }},
+    {n:'sway', d:3.0, f:function(u){ var s=Math.sin(u*Math.PI*2*2);
+      return {bx:470+s*26,by:246+Math.abs(s)*7,pitch:0,lat:s*30,
+        f:[{x:602+s*12,y:GY-Math.max(0,s)*26},{x:602,y:GY},{x:338+s*12,y:GY-Math.max(0,-s)*26},{x:338,y:GY}]}; }},
+    {n:'march', d:3.0, f:function(u){ var p=u*Math.PI*2*4, ft=[];
+      for(var i=0;i<4;i++){ var pr=(i===0||i===3)?0:1, pp=p+pr*Math.PI, up=Math.max(0,Math.sin(pp));
+        ft.push({x:(i<2?602:338)-Math.cos(pp)*18,y:GY-up*44}); }
+      return {bx:470,by:244,pitch:Math.sin(p)*0.05,lat:Math.sin(p*0.5)*8,f:ft}; }},
+    {n:'wave', d:2.8, f:function(u){ var s=Math.sin(u*Math.PI*2*3);
+      return {bx:446,by:250,pitch:-0.04,lat:26,
+        f:[{x:578+s*26,y:196-s*18},{x:578,y:GY},{x:314,y:GY},{x:314,y:GY}]}; }},
+    {n:'bow', d:2.6, f:function(u){ var e=u<0.3?u/0.3:(u>0.78?1-(u-0.78)/0.22:1);
+      var pit=0.36*e, c=Math.cos(pit);
+      return {bx:470-8*e,by:250+16*e,pitch:pit,lat:0,
+        f:[{x:470+HIPX*c+48*e,y:GY},{x:470+HIPX*c+48*e,y:GY},{x:470-HIPX*c,y:GY},{x:470-HIPX*c,y:GY}]}; }},
+    {n:'stance', d:1.4, f:function(){ return {bx:470,by:250,pitch:0,lat:0,
+        f:[{x:602,y:GY},{x:602,y:GY},{x:338,y:GY},{x:338,y:GY}]}; }}
+  ];
+  var RTOTAL=0; for(var ri=0;ri<ROUTINE.length;ri++) RTOTAL+=ROUTINE[ri].d;
+  function stepDance(now){
+    var t=(now-dance.t0)/1000;
+    if(t>RTOTAL){ dance=null; return; }
+    var acc=0,mv=ROUTINE[0],u=0,i;
+    for(i=0;i<ROUTINE.length;i++){ if(t<acc+ROUTINE[i].d){ mv=ROUTINE[i]; u=(t-acc)/ROUTINE[i].d; break; } acc+=ROUTINE[i].d; }
+    dance.name=mv.n; dance.left=Math.max(0,RTOTAL-t);
+    var T=mv.f(u), kb=0.26, kf=0.34;
+    S.bx+=(T.bx-S.bx)*kb; S.by+=(T.by-S.by)*kb; S.pitch+=(T.pitch-S.pitch)*kb; S.lat+=(T.lat-S.lat)*kb;
+    for(i=0;i<4;i++){ legs[i].fx+=(T.f[i].x-legs[i].fx)*kf;
+      legs[i].fy+=(Math.min(T.f[i].y,GY)-legs[i].fy)*kf; legs[i].planted=T.f[i].y>=GY-6; }
+  }
+  function snap(){ return {bx:S.bx,by:S.by,pitch:S.pitch,lat:S.lat,f:legs.map(function(l){return {x:l.fx,y:l.fy};})}; }
+  function go(t,d){ tw={a:snap(),b:t,t0:performance.now(),d:d||820}; }
+  function step(now){
+    if(!tw) return;
+    var p=clamp((now-tw.t0)/tw.d,0,1), e=p<.5?4*p*p*p:1-Math.pow(-2*p+2,3)/2;
+    S.bx=tw.a.bx+(tw.b.bx-tw.a.bx)*e; S.by=tw.a.by+(tw.b.by-tw.a.by)*e;
+    S.pitch=tw.a.pitch+(tw.b.pitch-tw.a.pitch)*e; S.lat=tw.a.lat+(tw.b.lat-tw.a.lat)*e;
+    for(var i=0;i<4;i++){ legs[i].fx=tw.a.f[i].x+(tw.b.f[i].x-tw.a.f[i].x)*e;
+                          legs[i].fy=tw.a.f[i].y+(tw.b.f[i].y-tw.a.f[i].y)*e; }
+    if(p>=1) tw=null;
+  }
+  $$('.rigfoot button').forEach(function(b){
+    b.addEventListener('click',function(){
+      var k=b.getAttribute('data-r');
+      if(k==='math'){ geom=!geom; b.classList.toggle('on',geom); return; }
+      if(k==='dance'){ dance={t0:performance.now()}; tw=null; return; }
+      dance=null;
+      if(k==='reset'){ legs.forEach(function(l){l.planted=true;});
+        go({bx:470,by:250,pitch:0,lat:0,f:[{x:602,y:GY},{x:602,y:GY},{x:338,y:GY},{x:338,y:GY}]},700); }
+      if(k==='three'){ legs.forEach(function(l){ l.planted=(l.id!=='FL'); });
+        go({bx:500,by:254,pitch:0.03,lat:22,f:[{x:618,y:GY-52},{x:632,y:GY},{x:368,y:GY},{x:368,y:GY}]},950); }
+      if(k==='two'){ legs.forEach(function(l){ l.planted=(l.id==='RL'||l.id==='RR'); });
+        go({bx:452,by:206,pitch:-0.72,lat:0,f:[{x:512,y:300},{x:512,y:300},{x:392,y:GY},{x:392,y:GY}]},1050); }
+    });
+  });
+
+  function line(a,b,c,d,col,w,dash){ ctx.save(); ctx.strokeStyle=col; ctx.lineWidth=w||1;
+    if(dash) ctx.setLineDash(dash); ctx.beginPath(); ctx.moveTo(a,b); ctx.lineTo(c,d); ctx.stroke(); ctx.restore(); }
+  function dot(x,y,r,col,fill){ ctx.save(); ctx.beginPath(); ctx.arc(x,y,r,0,Math.PI*2);
+    if(fill){ctx.fillStyle=fill;ctx.fill();} ctx.strokeStyle=col; ctx.lineWidth=1.6; ctx.stroke(); ctx.restore(); }
+  function txt(s,x,y,col,sz,al){ ctx.save(); ctx.fillStyle=col; ctx.font='400 '+(sz||11)*(small?1.6:1)+'px '+MONO;
+    ctx.textAlign=al||'left'; ctx.textBaseline='middle'; ctx.fillText(s,x,y); ctx.restore(); }
+
+  function drawLeg(l,far){
+    var r=solve(l), hp=r.h, s=r.s, ox=far?-14:0, oy=far?-6:0;
+    ctx.save(); ctx.lineCap='round'; ctx.lineJoin='round';
+    ctx.strokeStyle=far?C.far:(l.planted?C.ink:C.acc); ctx.lineWidth=far?2.6:3.4;
+    ctx.beginPath(); ctx.moveTo(hp.x+ox,hp.y+oy); ctx.lineTo(s.kx+ox,s.ky+oy); ctx.lineTo(s.fx+ox,s.fy+oy); ctx.stroke();
+    ctx.restore();
+    if(!far){
+      dot(hp.x,hp.y,3.6,C.acc,'#FFFDFA');
+      dot(s.kx,s.ky,3.2,C.acc,'#FFFDFA');
+      if(l.planted) dot(s.fx,s.fy,4.6,C.acc,C.acc);
+      else { ctx.save(); ctx.setLineDash([3,3]); dot(s.fx,s.fy,5,C.acc,'#FFFDFA'); ctx.restore(); }
+    } else dot(s.fx+ox,s.fy+oy,3.4,C.far,'#FFFDFA');
+    return r;
+  }
+
+  function draw(now){
+    requestAnimationFrame(draw);
+    if(dance) stepDance(now||0); else step(now||0);
+    var r=cv.getBoundingClientRect(); small=r.width>0&&r.width<520;
+    ctx.clearRect(0,0,W,H);
+    var sp=support();
+
+    line(40,GY,W-40,GY,C.rule,1.4);
+    for(var g=40;g<=W-40;g+=22) line(g,GY,g-7,GY+8,'#E2DACC',1);
+    txt('ground',44,GY+24,C.soft,10.5);
+
+    if(sp.n>=2){
+      var xs=sp.pl.map(function(l){return l.fx;});
+      var a=Math.min.apply(null,xs), b=Math.max.apply(null,xs);
+      var col=sp.state==='Stable'?C.ok:(sp.state==='Marginal'?C.mid:C.acc);
+      line(a,GY+15,b,GY+15,col,1.6); line(a,GY+10,a,GY+20,col,1.6); line(b,GY+10,b,GY+20,col,1.6);
+      txt('support span '+((b-a)/PPM).toFixed(2)+' m',(a+b)/2,GY+32,col,10.5,'center');
+    }
+
+    /* far legs, then the body, then the near legs — so the body sits between them */
+    legs.forEach(function(l){ if(!l.near) drawLeg(l,true); });
+
+    ctx.save();
+    ctx.translate(S.bx,S.by); ctx.rotate(S.pitch);
+    ctx.fillStyle='#FFFDFA'; ctx.strokeStyle=C.ink; ctx.lineWidth=1.8;
+    ctx.beginPath();
+    if(ctx.roundRect) ctx.roundRect(-BL/2,-BH/2,BL,BH,6); else ctx.rect(-BL/2,-BH/2,BL,BH);
+    ctx.fill(); ctx.stroke();
+    ctx.strokeStyle=C.rule; ctx.lineWidth=1;
+    ctx.beginPath(); ctx.rect(-108,-BH/2-19,80,19); ctx.stroke();
+    ctx.fillStyle='#FFFDFA'; ctx.strokeStyle=C.ink; ctx.lineWidth=1.4;
+    ctx.beginPath(); ctx.rect(BL/2-2,-BH/2+4,17,20); ctx.fill(); ctx.stroke();
+    ctx.restore();
+
+    var fw={x:S.bx+(BL/2+22)*Math.cos(S.pitch), y:S.by+(BL/2+22)*Math.sin(S.pitch)};
+    txt('front',fw.x+6,fw.y,C.soft,10.5);
+    var pw={x:S.bx-68*Math.cos(S.pitch)+(BH/2+19)*Math.sin(S.pitch),
+            y:S.by-68*Math.sin(S.pitch)-(BH/2+19)*Math.cos(S.pitch)};
+    txt('payload',pw.x,pw.y-12,C.soft,10.5,'center');
+
+    var fl=legs[0];
+    legs.forEach(function(l){ if(l.near) drawLeg(l,false); });
+
+    if(geom){
+      var rr=solve(fl), hp=rr.h, s=rr.s;
+      ctx.save(); ctx.setLineDash([4,4]); line(hp.x,hp.y,s.fx,s.fy,C.plum,1); ctx.restore();
+      txt('L1 '+(L1/PPM).toFixed(2)+' m',(hp.x+s.kx)/2-10,(hp.y+s.ky)/2,C.plum,10.5,'right');
+      txt('L2 '+(L2/PPM).toFixed(2)+' m',(s.kx+s.fx)/2-10,(s.ky+s.fy)/2,C.plum,10.5,'right');
+      ctx.save(); ctx.setLineDash([3,3]); ctx.strokeStyle=C.plum; ctx.lineWidth=1.1;
+      ctx.beginPath(); ctx.arc(hp.x,hp.y,26,Math.PI/2,s.hipA,s.hipA<Math.PI/2); ctx.stroke(); ctx.restore();
+      txt('θ hip',hp.x+32,hp.y+20,C.plum,10.5);
+      txt('θ knee',s.kx+24,s.ky+16,C.plum,10.5);
+    }
+
+    var stCol=sp.state==='Stable'?C.ok:(sp.state==='Marginal'?C.mid:C.acc);
+    ctx.save(); ctx.setLineDash([5,5]); line(S.bx,S.by,S.bx,GY,stCol,1.2); ctx.restore();
+    dot(S.bx,S.by,8,C.acc,'rgba(122,34,51,.10)');
+    line(S.bx-12,S.by,S.bx+12,S.by,C.acc,1.2); line(S.bx,S.by-12,S.bx,S.by+12,C.acc,1.2);
+    txt('centre of mass',S.bx+16,S.by-14,C.acc,10.5);
+    dot(S.bx,GY,3.4,stCol,stCol);
+
+    if(!small){
+      ctx.save(); ctx.fillStyle='#FFFDFA'; ctx.strokeStyle=C.rule; ctx.lineWidth=1;
+      ctx.fillRect(MM.x,MM.y,MM.w,MM.h); ctx.strokeRect(MM.x+.5,MM.y+.5,MM.w-1,MM.h-1); ctx.restore();
+      txt('support polygon, from above',MM.x+10,MM.y+15,C.soft,10);
+      line(MM.x,MM.y+27,MM.x+MM.w,MM.y+27,C.rule,1);
+      if(sp.poly.length>=3){
+        ctx.save(); ctx.beginPath();
+        sp.poly.forEach(function(q,i){var m2=mm(q); if(i===0)ctx.moveTo(m2.x,m2.y); else ctx.lineTo(m2.x,m2.y);});
+        ctx.closePath();
+        ctx.fillStyle=sp.state==='Stable'?'rgba(47,107,69,.10)':(sp.state==='Marginal'?'rgba(138,90,27,.10)':'rgba(122,34,51,.10)');
+        ctx.strokeStyle=stCol; ctx.lineWidth=1.3; ctx.fill(); ctx.stroke(); ctx.restore();
+      } else if(sp.poly.length===2){ var p0=mm(sp.poly[0]),p1=mm(sp.poly[1]); line(p0.x,p0.y,p1.x,p1.y,C.acc,1.4); }
+      legs.forEach(function(l){ var q=mm({x:l.fx,y:l.lat});
+        if(l.planted) dot(q.x,q.y,3.8,C.acc,C.acc);
+        else { ctx.save(); ctx.setLineDash([2,2]); dot(q.x,q.y,4,C.acc,'#FFFDFA'); ctx.restore(); }
+      });
+      var cq=mm({x:S.bx,y:S.lat});
+      dot(cq.x,cq.y,6,stCol,'rgba(122,34,51,.10)');
+      line(cq.x-9,cq.y,cq.x+9,cq.y,C.acc,1.1); line(cq.x,cq.y-9,cq.x,cq.y+9,C.acc,1.1);
+      txt('drag',MM.x+10,MM.y+MM.h-12,C.soft,9.5);
+    }
+    if(sp.n===2) txt('no static support — a learned policy is required here',W/2,GY+56,C.acc,11.5,'center');
+    if(dance&&dance.name) txt(dance.name+' · '+dance.left.toFixed(1)+'s',W/2,GY+80,C.soft,11,'center');
+
+    tel(sp);
+  }
+  var last=0;
+  function tel(sp){
+    var now=performance.now(); if(now-last<100) return; last=now;
+    var rr=solve(legs[0]), s=rr.s;
+    var hipDeg=(s.hipA*180/Math.PI)-90, kneeDeg=(s.kneeA-s.hipA)*180/Math.PI;
+    while(kneeDeg>180)kneeDeg-=360; while(kneeDeg<-180)kneeDeg+=360;
+    function set(id,v,c){ var e=$('#'+id); if(!e)return; if(e.textContent!==v)e.textContent=v; e.className=c||''; }
+    var cls=sp.state==='Stable'?'ok':(sp.state==='Marginal'||sp.state==='Dynamic only'?'mid':'no');
+    set('t-sup',sp.n+'-leg');
+    set('t-mar',sp.n>=3?((sp.margin/PPM*100).toFixed(1)+' cm'):'—',sp.n>=3?cls:'');
+    set('t-hip',hipDeg.toFixed(1)+'°');
+    set('t-knee',kneeDeg.toFixed(1)+'°');
+    set('t-state',sp.state,cls);
+  }
+  requestAnimationFrame(draw);
+})();
+})();
+</script>
+</body>
+</html>
