@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Daisy</title>
+<meta name="description" content="A hand-written balance controller that stands a Boston Dynamics Spot on three legs, plus a learned two-leg policy trained in NVIDIA Isaac Lab.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Daisy">
+<meta property="og:description" content="A hand-written balance controller that stands a Boston Dynamics Spot on three legs, plus a learned two-leg policy trained in NVIDIA Isaac Lab.">
+<meta property="og:image" content="my%20drawings/Daisy.png">
+<meta name="theme-color" content="#F0E3CC">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700;12..96,800&family=Caveat:wght@500;700&family=Instrument+Sans:ital,wght@0,400;0,500;0,600;1,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='8' fill='%234B3270'/><text x='16' y='23' font-size='17' font-family='sans-serif' font-weight='bold' fill='%23FBF6EC' text-anchor='middle'>M</text></svg>">
+</head>
+<body style="--ac:var(--purple);--ac-t:var(--purple-t)">
+<div class="grain"></div>
+<nav class="topnav"><div class="wrap in">
+  <a class="back" href="home.html"><span class="ico">&larr;</span> the floor</a>
+  <div class="navlinks"><a href="daisy.html" class="here">Daisy</a><a href="drone.html">Crazyflie</a><a href="crimson.html">Crimson Hosting</a><a href="hackathons.html">Hackathons</a><a href="about.html">About me</a><a href="media/resume.pdf" target="_blank" rel="noopener">Resume</a><a href="contact.html">Contact</a></div>
+</div></nav>
+<header class="phero"><div class="wrap pheroin">
+<div class="mark"><img src="my%20drawings/Daisy.png" alt="" onerror="this.parentNode.remove()"></div>
+<div>
+  <h1>Daisy stands on three legs</h1>
+  <p class="plede">Daisy is our lab's Boston Dynamics Spot. Under Professor Scott Alfeld I wrote the controller that lets her pick a foot up and stay standing. I also trained Daisy to stand on two legs in simulation.</p>
+</div>
+</div></header>
+<main><div class="wrap">
+<div class="grid g2">
+  <div class="card wide">
+    <div class="media" data-zoom>
+      <video src="media/daisy-3leg.mp4" autoplay muted loop playsinline></video></div>
+    <div class="cbody">
+      <h3>Why lifting one foot is the hard part</h3>
+      <p>On four feet she balances over the square her feet make. Lift one and it becomes a triangle. If the center of mass is not already inside that triangle when the foot leaves the floor, she tips. So the body has to move first, then the leg.</p>
+      <h3>The Solution</h3>
+      <p>Jacobian inverse kinematics turns a foot target into hip, knee and abduction angles. A stability check runs between every phase, and a failed check resets her to a standing position instead of continuing to move to an unstable state. This code is hand written and does not contain any trained policy.</p>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="media" data-zoom>
+      <video src="media/spot-3leg-sim.mp4" autoplay muted loop playsinline></video></div>
+    <div class="cbody"><h3>Simulation First</h3>
+      <p>To avoid risking damage to the real robot, I tested everything in simulation first. Falls could be reset instantly, which let me iterate quickly and safely.</p>
+      <p>Nothing moved to the real Spot until it ran clean in sim, repeatedly.</p></div>
+  </div>
+
+  <div class="card">
+    <div class="media" data-zoom>
+      <video src="media/spot-2leg-rl.mp4" autoplay muted loop playsinline></video></div>
+    <div class="cbody"><h3>Two leg policy</h3>
+      <p>Two leg balance is inherently unstable. The robot has to continuously maintain the pose rather than relying on a fixed stance.</p>
+      <p>I trained 2400 robots in parallel with randomized payloads, floor friction, and periodic pushes to generalize the policy.</p>
+      <p>It now holds a stable two leg stance in simulation. Deployment on Daisy is planned for the spring.</p></div>
+  </div>
+
+  <div class="card">
+    <div class="art-slot">
+      <img src="my%20drawings/GPU.png" alt="" onerror="slotFail(this)" style="width:100%;border-bottom:2.5px solid var(--ink)">
+      <div class="slot flat" hidden><span class="pencil">&#9998;</span><span class="fn">GPU.png</span>
+        <span class="what">A graphics card, or a small server rack with a couple of lights. The cluster is the part systems people care about and it has no drawing yet.</span>
+        <span class="where">this card, right here</span></div>
+    </div>
+    <div class="cbody"><h3>Getting Isaac Sim Running on FrostByte</h3>
+      <p> Isaac Sim is NVIDIA's robotics simulator, the virtual environment where I ran Spot before testing on the real robot.</p>
+      <p> I worked with Amherst IT to get Isaac Sim running on FrostByte, setting up the environment on my end so I could run simulations on the cluster's GPUs.</p>
+      <p>That setup now lets me train remotely and gives future students a working environment from day one.</p></div>
+  </div>
+
+  <div class="card">
+    <div class="media" data-zoom>
+      <img src="media/frostbyte.jpg" alt="The FrostByte GPU cluster" loading="lazy"></div>
+    <div class="cbody"><h3>FrostByte</h3>
+      <p>Amherst's GPU cluster. Every training above ran here, giving me the compute I needed without relying on paid cloud GPUs.</p></div>
+  </div>
+
+  <div class="card wide">
+    <div class="media poster" data-zoom>
+      <img src="media/poster.jpg" alt="Summer research poster" loading="lazy"></div>
+    <div class="cbody"><h3>The poster</h3>
+      <p>Created for Amherst's summer research program, summarizing my work on Daisy, reinforcement learning, Crazyflie drones, and the challenges I ran into along the way.</p>
+      <p><a class="btn ghost" href="media/poster.pdf" target="_blank" rel="noopener">Open the readable PDF &rarr;</a></p></div>
+  </div>
+</div>
+</div></main>
+<footer class="site"><div class="wrap foot">
+  <a class="btn ghost" href="home.html">&larr; Back</a>
+  <a class="sig" href="home.html">Mohammed Suleiman</a>
+</div></footer>
+<div class="lb" id="lb"><button class="x" id="lbx" aria-label="Close">&#10005;</button></div>
+<script src="app.js"></script>
+</body>
+</html>

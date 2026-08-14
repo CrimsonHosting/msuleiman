@@ -1,0 +1,81 @@
+PUTTING THIS ON msuleiman.com
+=============================
+
+Everything in THIS folder is the website. Nothing above it is.
+18 MB total. Upload the CONTENTS of this folder, not the folder itself.
+
+
+1. MAKE THE REPO
+   github.com -> New repository
+   Name it whatever you like, e.g.  portfolio
+   Public. Do not add a README, it will only get in the way.
+
+
+2. UPLOAD
+   On the empty repo page: "uploading an existing file"
+   Drag in everything inside Website-Deploy, including the media and
+   drawings folders. Commit.
+
+   Two files start with a dot and Windows Explorer may hide them:
+       .nojekyll     tells GitHub to serve the files untouched
+       .gitignore    keeps the raw footage out if you ever add it
+   Turn on hidden files (View -> Show -> Hidden items) so they get uploaded.
+   .nojekyll matters. Without it GitHub can skip files in some cases.
+
+
+3. TURN ON PAGES
+   Repo -> Settings -> Pages
+   Source: Deploy from a branch
+   Branch: main, folder: / (root). Save.
+
+   Wait a minute, then check the yourname.github.io/portfolio link it gives
+   you. If the site loads there, the hard part is done.
+
+
+4. POINT THE DOMAIN AT IT
+   The CNAME file in here already says msuleiman.com, so GitHub knows the
+   domain. You still have to tell the domain about GitHub.
+
+   At your registrar, DNS settings:
+
+     Type   Name   Value
+     A      @      185.199.108.153
+     A      @      185.199.109.153
+     A      @      185.199.110.153
+     A      @      185.199.111.153
+     CNAME  www    YOURUSERNAME.github.io
+
+   Replace YOURUSERNAME. Keep the trailing dot if the registrar adds one.
+
+   Then Settings -> Pages -> Custom domain -> msuleiman.com -> Save,
+   and tick "Enforce HTTPS" once it lets you. The tick box is greyed out
+   until the certificate is issued, which can take up to an hour.
+
+   DNS usually takes 10 to 30 minutes. It can take 24 hours. If it is not
+   working after an hour, that is normal, not broken.
+
+
+IF THE DOMAIN IS NOT msuleiman.com
+   Open the CNAME file, put the right domain on the first line, nothing
+   else. Also update the og:image line near the top of each .html file,
+   it has the domain in it for link previews.
+
+
+CHANGING THINGS LATER
+   Edit the files in the parent folder as you have been doing, then rebuild
+   this folder. Or edit these copies directly and re-upload. Do not edit
+   both, you will lose track of which is current.
+
+   Remember index.html here is home.html up there. If you change home.html,
+   the change has to reach index.html.
+
+
+WHAT WAS LEFT OUT ON PURPOSE
+   _RAW-MEDIA-DROP-HERE   931 MB of source footage. GitHub blocks files
+                          over 100 MB and five of yours are over 50 MB.
+   index.html (the old one), index-v2.html, desktop.html
+                          earlier versions of the site. The old index.html
+                          especially had to go, it would have taken over
+                          the front page.
+   COPY-DECK.md           your notes
+   Four unused placeholder drawings
