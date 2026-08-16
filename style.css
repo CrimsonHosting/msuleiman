@@ -397,14 +397,16 @@ footer.site{border-top:2.5px solid var(--ink);background:var(--paper2);padding:2
   .form .row{grid-template-columns:1fr}
   .dl div{grid-template-columns:1fr;gap:3px}
   .tl li{padding-left:60px}.tl li .n{width:46px;height:46px;font-size:14px}.tl::before{left:22px}
-  /* the six quick links no longer fit beside the button, so let them
-     scroll sideways instead of pushing off the edge */
-  .topnav .in{gap:10px;flex-wrap:wrap;padding:9px 0}
-  .back{flex:none}
-  .navlinks{gap:16px;flex:1 1 100%;overflow-x:auto;-webkit-overflow-scrolling:touch;
-    scrollbar-width:none;padding-bottom:2px}
-  .navlinks::-webkit-scrollbar{display:none}
-  .navlinks a{font-size:13.5px;white-space:nowrap;flex:none}
+  /* A bar you have to swipe sideways is a bar whose right-hand items may as well
+     not exist, and the two falling off the edge were Resume and Contact — the two
+     things anyone actually opens a portfolio for. The five section links are what
+     the floor already is, and the floor is one tap away on the Back button, so on
+     a phone they come off the bar and these two stay put. Nothing scrolls. */
+  .topnav .in{gap:12px;flex-wrap:nowrap;padding:9px 0}
+  .back{flex:none;font-size:14.5px;padding:6px 14px 6px 8px}
+  .navlinks{gap:18px;flex:0 1 auto;min-width:0;overflow:visible}
+  .navlinks a{display:none}
+  .navlinks a.key{display:inline-block;font-size:14.5px;font-weight:600;white-space:nowrap}
   .things a{flex:1 1 84px}
 }
 @media (prefers-reduced-motion:reduce){
