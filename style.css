@@ -406,7 +406,14 @@ footer.site{border-top:2.5px solid var(--ink);background:var(--paper2);padding:2
   .back{flex:none;font-size:14.5px;padding:6px 14px 6px 8px}
   .navlinks{gap:18px;flex:0 1 auto;min-width:0;overflow:visible}
   .navlinks a{display:none}
-  .navlinks a.key{display:inline-block;font-size:14.5px;font-weight:600;white-space:nowrap}
+  /* Matched by destination as well as by class, so a page still serving older
+     markup out of a cache gets the right bar the moment this file is current.
+     One less thing that has to be in sync for the nav to behave. */
+  .navlinks a.key,
+  .navlinks a[href$="resume.pdf"],
+  .navlinks a[href$="/contact/"],
+  .navlinks a[href$="contact.html"]{display:inline-block;font-size:14.5px;
+    font-weight:600;white-space:nowrap}
   .things a{flex:1 1 84px}
 }
 @media (prefers-reduced-motion:reduce){
