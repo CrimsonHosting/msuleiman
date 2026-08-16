@@ -1,60 +1,7 @@
 <!DOCTYPE html>
-<html lang="en" class="no-js">
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<title>Crazyflie Drones</title>
-<meta name="description" content="Five autonomous Crazyflie behaviors, every decision made onboard from optical flow, Lighthouse and a multiranger deck.">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Crazyflie Drones">
-<meta property="og:description" content="Five autonomous Crazyflie behaviors, every decision made onboard from optical flow, Lighthouse and a multiranger deck.">
-<meta property="og:image" content="https://msuleiman.com/drawings/Daisy.png">
-<meta name="theme-color" content="#F0E3CC">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700;12..96,800&family=Caveat:wght@500;700&family=Instrument+Sans:ital,wght@0,400;0,500;0,600;1,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css">
-<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='8' fill='%234B3270'/><text x='16' y='23' font-size='17' font-family='sans-serif' font-weight='bold' fill='%23FBF6EC' text-anchor='middle'>M</text></svg>">
-</head>
-<body style="--ac:var(--lime);--ac-t:var(--lime-t)">
-<div class="grain"></div>
-<nav class="topnav"><div class="wrap in">
-  <a class="back" href="index.html"><span class="ico">&larr;</span> the floor</a>
-  <div class="navlinks"><a href="daisy.html">Daisy</a><a href="drone.html" class="here">Crazyflie</a><a href="crimson.html">Crimson Hosting</a><a href="hackathons.html">Hackathons</a><a href="about.html">About me</a><a href="media/resume.pdf" target="_blank" rel="noopener">Resume</a><a href="contact.html">Contact</a></div>
-</div></nav>
-<header class="phero"><div class="wrap pheroin">
-<div class="mark"><img src="drawings/Drone.png" alt="" onerror="this.parentNode.remove()"></div>
-<div>
-  <h1>A drone that reacts on its own</h1>
-  <p class="plede">I programmed Crazyflie drones to hover after being thrown, fly figure eights, dodge obstacles, and react to nearby objects. Using onboard sensors like Flow deck v2 and the Multiranger deck, the drone can sense its surroundings and decide how to respond in real time.</p>
-</div>
-</div></header>
-<main><div class="wrap">
-<div class="grid g2">
-  <div class="card wide msplit">
-    <div class="media" data-zoom>
-      <video src="media/cf-throw-hover.mp4" autoplay muted loop playsinline></video></div>
-    <div class="cbody"><h3>I throw it. It catches itself.</h3>
-      <p>Once released, the drone detects the throw, stabilizes itself, and settles into a hover entirely on its own.</p>
-      <h4></h4>
-      <p>The challenge was making sure it only triggered after a real release. I tuned the detection using actual throws so it would not mistake normal handling for flight.</p></div>
-  </div>
-</div>
-
-<div class="grid g3 five" style="margin-top:clamp(16px,2.4vw,26px)">
-<div class="card"><div class="media sq" data-zoom><video src="media/cf-pingpong.mp4" autoplay muted loop playsinline></video></div><div class="cbody"><h3>Ping pong</h3><p>Flies until the Multiranger detects an obstacle, reverses direction, and keeps going until it finds the next one.</p><p>The challenge was timing the reversal: too early and it barely commits; too late and it reaches the wall before turning.</p></div></div>
-<div class="card"><div class="media sq" data-zoom><video src="media/cf-dodge.mp4" autoplay muted loop playsinline></video></div><div class="cbody"><h3>Dodge</h3><p>Hovers in place and moves away when something gets too close. The closer the obstacle gets, the harder it retreats.</p><p>Same idea as Ping pong, but a completely different behavior, this one tries to hold its ground.</p></div></div>
-<div class="card"><div class="media sq" data-zoom><video src="media/cf-figure8.mp4" autoplay muted loop playsinline></video></div><div class="cbody"><h3>Figure eight</h3><p>Flies a smooth figure eight using the Flow Deck for position estimation, then returns to the center and lands.</p><p>The path is generated continuously rather than as a list of waypoints, which keeps the motion smooth through both loops and the center crossover.</p></div></div>
-<div class="card"><div class="media sq" data-zoom><video src="media/cf-barrelroll.mp4" autoplay muted loop playsinline></video></div><div class="cbody"><h3>Barrel roll</h3><p>Commands a full roll around the drone's body axis, then tries to recover upright.</p><p>The roll worked. Recovery was harder with the limited ceiling height, so I stopped before turning a successful demo into a broken drone.</p></div></div>
-<div class="card"><div class="stlwrap"><canvas id="stlv" width="880" height="880"></canvas></div><div class="cbody"><h3>A motor mount printed in the lab</h3><p>When a motor mount broke, I found a printable replacement, made it in the lab, and had the drone flying again the same day.</p><p>Above is the rendered STL model of the replacement motor mount.</p></div></div>
-</div>
-</div></main>
-<footer class="site"><div class="wrap foot">
-  <a class="btn ghost" href="index.html">&larr; Back</a>
-  <a class="sig" href="index.html">Mohammed Suleiman</a>
-</div></footer>
-<div class="lb" id="lb"><button class="x" id="lbx" aria-label="Close">&#10005;</button></div>
-<script src="app.js"></script>
-<script src="stl.js"></script>
-</body>
-</html>
+<html lang="en"><head><meta charset="utf-8">
+<title>Redirecting</title>
+<link rel="canonical" href="/drone/">
+<meta http-equiv="refresh" content="0; url=/drone/">
+<script>location.replace('/drone/');</script>
+</head><body><p>Moved to <a href="/drone/">/drone/</a>.</p></body></html>

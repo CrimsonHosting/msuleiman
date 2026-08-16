@@ -5,6 +5,13 @@ Everything in THIS folder is the website. Nothing above it is.
 18 MB total. Upload the CONTENTS of this folder, not the folder itself.
 
 
+THE URLS ARE CLEAN
+   Each page is a folder with an index.html inside, so the address bar
+   shows msuleiman.com/daisy rather than msuleiman.com/daisy.html.
+   The old .html files are still here as redirects, so any link you have
+   already shared keeps working. Upload them too.
+
+
 1. MAKE THE REPO
    github.com -> New repository
    Name it whatever you like, e.g.  portfolio

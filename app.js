@@ -204,6 +204,7 @@ function launch(){
 /* everything already out, no button, no animation */
 function settled(){
   if(!stage) return;
+  document.documentElement.classList.remove('armlock');
   stage.classList.remove('armed');
   document.body.classList.add('blown');
   $$('.obj', stage).forEach(function(o){ o.classList.add('landed'); });
@@ -214,12 +215,80 @@ function settled(){
 var SEEN = false;
 try{ SEEN = sessionStorage.getItem('ms-floor') === '1'; }catch(e){}
 
+/* ---- the phone version of Get started ----
+   The desktop fly-out needs a scatter to fly across; a stacked grid has none, and
+   swapping the layout is what made everything teleport. So on a phone the layout
+   never changes at all. The drawings are laid out from the start and only faded
+   out; the name is pushed to the middle of the screen with a transform. Get
+   started just releases that transform and fades the drawings in. */
+function liftName(){
+  if(!hub || !stage || !stage.classList.contains('armed')) return;
+  var root = document.documentElement;
+  /* Kill the transition BEFORE zeroing the lift. Zeroing it with the transition
+     live starts an animation, and the box we then measure is still the lifted
+     one, so the next lift comes out as zero and the name snaps to the top. That
+     is exactly what happened the moment the webfonts landed and this re-ran. */
+  root.classList.add('measuring');
+  hub.style.setProperty('--lift','0px');
+  void hub.offsetHeight;                       /* commit the zero, then look */
+  var r  = hub.getBoundingClientRect();
+  var vh = window.innerHeight || root.clientHeight;
+  var dy = Math.round(vh/2 - (r.top + r.height/2));
+  hub.style.setProperty('--lift', (dy > 8 ? dy : 0) + 'px');
+  void hub.offsetHeight;                       /* commit the lift too */
+  root.classList.remove('measuring');
+}
+
+function armStacked(){
+  document.documentElement.classList.add('armlock');
+  liftName();
+  /* re-measure at every point the name's height can still change */
+  if(window.requestAnimationFrame) requestAnimationFrame(liftName);
+  window.addEventListener('load', liftName);
+  if(document.fonts && document.fonts.ready) document.fonts.ready.then(liftName);
+  window.addEventListener('resize', liftName);
+  window.addEventListener('orientationchange', liftName);
+}
+
+function launchStacked(){
+  var things = $$('.obj', stage);
+  document.documentElement.classList.remove('armlock');
+  things.forEach(function(o){
+    o.style.transition = 'none';
+    o.style.opacity = '0';
+    o.style.setProperty('--rise','18px');
+  });
+  void stage.offsetWidth;
+  stage.classList.remove('armed');
+  document.body.classList.add('blown');
+  hub.style.setProperty('--lift','0px');                 /* glides down into the grid */
+  things.forEach(function(o, i){
+    setTimeout(function(){
+      o.style.transition = 'opacity .42s ease, transform .6s cubic-bezier(.2,1.05,.32,1)';
+      o.style.opacity = '1';
+      o.style.setProperty('--rise','0px');
+      o.classList.add('landed');
+    }, 300 + i*85);
+  });
+  setTimeout(function(){
+    things.forEach(function(o){
+      o.style.transition = ''; o.style.opacity = ''; o.style.removeProperty('--rise');
+    });
+    hub.style.transition = '';
+  }, 300 + things.length*85 + 800);
+}
+
+function stacked(){
+  return window.matchMedia && window.matchMedia('(max-width:900px)').matches;
+}
+
 if(stage && go && !SEEN){
+  if(stacked()) armStacked();
   var fired = false;
   var start = function(){
     if(fired) return; fired = true;
     try{ sessionStorage.setItem('ms-floor','1'); }catch(e){}
-    launch();
+    if(stacked()) launchStacked(); else launch();
   };
   go.addEventListener('click', start);
   document.addEventListener('keydown', function(e){
